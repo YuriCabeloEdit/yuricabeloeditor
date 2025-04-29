@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuri | Editor de Vídeos & Thumbmaker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #6d28d9; /* Roxo/Violeta - Criatividade + Autoridade */
+            --primary-dark: #5b21b6;
+            --secondary: #f59e0b; /* Laranja Suave - Ação + Otimismo */
+             /* Cores Neutras */
+            --neutral-dark: #1F2937; /* Grafite/Azul Escuro - Estabilidade + Profissionalismo */
+            --neutral-medium: #374151;
+            --neutral-light: #f8fafc; /* Off-White - Respiro visual */
+            --neutral-light-gray: #f9fafb; /* Off-White Claro */
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--neutral-light); /* Usando variável para fundo */
+            color: var(--neutral-dark); /* Cor base para textos escuros */
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            background-color: black; /* Fundo preto para vídeos */
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary); /* Cor do destaque do link */
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary)); /* Gradiente nas barras */
+            transition: width 1s ease-in-out;
+        }
+
+        /* Estilo para as grades de imagens */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Colunas responsivas */
+            gap: 16px; /* Espaço entre as imagens */
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-grid img:hover {
+             transform: scale(1.05); /* Leve zoom ao passar o mouse */
+             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+         /* Estilo específico para prints de métricas */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Colunas um pouco maiores para prints */
+            gap: 16px; /* Espaço entre as imagens */
+        }
+         .metrics-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .metrics-grid img:hover {
+             transform: scale(1.03); /* Leve zoom */
+             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Estilo para cards de depoimento com foto */
+         .testimonial-card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+         }
+         .testimonial-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 16px;
+         }
+         .testimonial-card h4 {
+            font-weight: bold;
+            margin-bottom: 4px;
+         }
+         .testimonial-card p {
+            color: var(--neutral-dark); /* Texto do depoimento */
+            margin-top: 12px;
+             font-style: italic; /* Para destacar a fala */
+         }
+         .testimonial-card .client-info {
+             color: #6b7280; /* Cor mais suave para cargo/canal */
+            font-size: 0.9em;
+            margin-top: 8px;
+            font-style: normal;
+         }
+    </style>
+</head>
+<body class="text-gray-800">
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">YURI</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600">Início</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-purple-600">Serviços</a>
+                    <a href="#thumbs-premium" class="nav-link text-gray-700 hover:text-purple-600">Thumbs Premium</a> {/* Link para nova seção */}
+                    <a href="#metricas-reais" class="nav-link text-gray-700 hover:text-purple-600">Métricas</a> {/* Link para nova seção */}
+                    <a href="#portfolio" class="nav-link text-gray-700 hover:text-purple-600">Vídeos</a> {/* Link para seção de vídeos */}
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600">Habilidades</a>
+                     <a href="#testimonials" class="nav-link text-gray-700 hover:text-purple-600">Depoimentos</a> {/* Link para seção de depoimentos */}
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600">Contato</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-purple-600">Início</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-purple-600">Serviços</a>
+            <a href="#thumbs-premium" class="block py-2 text-gray-700 hover:text-purple-600">Thumbs Premium</a> {/* Link para nova seção */}
+            <a href="#metricas-reais" class="block py-2 text-gray-700 hover:text-purple-600">Métricas</a> {/* Link para nova seção */}
+            <a href="#portfolio" class="block py-2 text-gray-700 hover:text-purple-600">Vídeos</a> {/* Link para seção de vídeos */}
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-purple-600">Habilidades</a>
+             <a href="#testimonials" class="block py-2 text-gray-700 hover:text-purple-600">Depoimentos</a> {/* Link para seção de depoimentos */}
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-purple-600">Contato</a>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        Olá, eu sou <span class="gradient-text">Yuri</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">
+                        Editor de Vídeos & <span class="font-semibold">Thumbmaker</span>
+                    </h2>
+                    <p class="text-gray-600 mb-8 max-w-lg">
+                        Transformo suas ideias em vídeos impactantes e thumbs que convertem. Com criatividade e técnica, 
+                        ajudo criadores de conteúdo a se destacarem nas plataformas digitais.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="px-6 py-3 gradient-bg text-white rounded-full font-medium hover:shadow-lg transition-all">
+                            Vamos conversar
+                        </a>
+                        <a href="#portfolio" class="px-6 py-3 border border-gray-300 rounded-full font-medium hover:bg-gray-50 transition-all"> {/* Mantido como "Ver Portfólio", mas levará para Vídeos */}
+                            Ver Portfólio
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl animate-float">
+                        {/* Imagem de perfil placeholder - substitua pela sua foto */}
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Yuri - Editor de Vídeos" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-purple-600 opacity-20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meus <span class="gradient-text">Serviços</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Ofereço soluções completas para suas necessidades de vídeo e thumbnails
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-film text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Edição de Vídeo</h3>
+                    <p class="text-gray-600 mb-4">
+                        Edição profissional para YouTube, Instagram, TikTok e outras plataformas. 
+                        Cortes precisos, transições criativas, efeitos visuais e sincronização perfeita.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Edição para YouTube
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Vídeos para Instagram/TikTok
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Motion Graphics
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-image text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Thumbnails</h3>
+                    <p class="text-gray-600 mb-4">
+                        Thumbnails profissionais que aumentam o CTR (taxa de cliques). 
+                        Design atraente, tipografia impactante e elementos visuais que destacam seu conteúdo.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Thumbs para YouTube
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Design personalizado
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Templates reutilizáveis
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pós-Produção</h3>
+                    <p class="text-gray-600 mb-4">
+                        Serviços completos de pós-produção: correção de cor, tratamento de áudio, 
+                        legendagem, efeitos especiais e finalização para diferentes plataformas.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Correção de color
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Tratamento de áudio
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            Efeitos especiais
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     {/* Nova Seção: Thumbnails Premium */}
+    <section id="thumbs-premium" class="py-16 bg-gray-50"> {/* Cor de fundo cinza claro */}
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Thumbnails <span class="gradient-text">Premium</span></h2> {/* Título */}
+                 <p class="text-gray-600 max-w-2xl mx-auto">
+                    Algumas thumbnails que criei para gerar alto impacto e CTR. Veja o poder do design estratégico!
+                </p> {/* Subtexto adaptado */}
+            </div>
+            
+            {/* Grade de Thumbnails (substituindo carrossel) */}
+            <div class="image-grid">
+                {/* Thumbnails - 18 links fornecidos */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/Thumb-Premium--Mundo-da-Sinuca--%231-by-Yuri-Cabelo.png?raw=true" alt="Thumbnail Premium - Mundo da Sinuca #1">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/Thumb-Premium--Mundo-da-Sinuca--%232-by-Yuri-Cabelo.png?raw=true" alt="Thumbnail Premium - Mundo da Sinuca #2">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/Thumb-Premium--Mundo-da-Sinuca--Outubro-%233-by-Yuri-Cabelo.png?raw=true" alt="Thumbnail Premium - Mundo da Sinuca Outubro #3">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/Thumb-Premium-Gabe-Zanqui-2025-Fev-%233.png?raw=true" alt="Thumbnail Premium - Gabe Zanqui Fev #3">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/Thumb-Premium-Gabe-Zanqui-2025-Fev-%235.png?raw=true" alt="Thumbnail Premium - Gabe Zanqui Fev #5">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/Thumb-Premium-Gabe-Zanqui-2025-P%C3%A1scoa-Gabob-%233.png?raw=true" alt="Thumbnail Premium - Gabe Zanqui Páscoa #3">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/Thumb-Pro-Galotube-Nov-2024-d66.png?raw=true" alt="Thumbnail Pro - Galotube Nov 2024 d66">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Pro-Galotube-Nov-2024-da137B.png?raw=true" alt="Thumbnail Pro - Galotube Nov 2024 da137B"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Pro-Galotube-Out-2024-d65vb.png?raw=true" alt="Thumbnail Pro - Galotube Out 2024 d65vb"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb--Premium-Tiago-Agosto-2024-%232.png?raw=true" alt="Thumbnail Premium - Tiago Agosto 2024 #2"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb--Premium-Tiago-Junho-2024-%237.png?raw=true" alt="Thumbnail Premium - Tiago Junho 2024 #7"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb--Premium-Tiago-Novembro-2024-%236.png?raw=true" alt="Thumbnail Premium - Tiago Novembro 2024 #6"> {/* Adicionado ?raw=true */}
+                 <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Premium-%2316b--Pipoca.png?raw=true" alt="Thumbnail Premium #16b - Pipoca"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Premium--Santa-Coxinha-Turistando-SP.png?raw=true" alt="Thumbnail Premium - Santa Coxinha Turistando SP"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Premium-K-Tech-%23-f150-air-3s.png?raw=true" alt="Thumbnail Premium - K-Tech f150 Air 3s"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Premium-Mr-Beats-Turistando-SP.png?raw=true" alt="Thumbnail Premium - Mr Beats Turistando SP"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Premium-K-Tech-%23-Armor-28-ultra.png?raw=true" alt="Thumbnail Premium - K-Tech Armor 28 Ultra"> {/* Adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Premium-Ana-%237--by-Yuri-Cabelo.png?raw=true" alt="Thumbnail Premium - Ana #7 by Yuri Cabelo"> {/* Adicionado ?raw=true */}
+            </div>
+        </div>
+    </section>
+
+     {/* Nova Seção: Métricas Reais */}
+    <section id="metricas-reais" class="py-16"> {/* Sem bg-gray-50 aqui para alternar com a de thumbs */}
+         <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">📊 <span class="gradient-text">Métricas Reais</span></h2> {/* Título */}
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Veja o que já entreguei pra outros criadores. 👇 Quando o vídeo não performa, a culpa nem sempre é do conteúdo. Esses prints provam como uma edição alinhada e uma thumb estratégica podem mudar tudo:
+                </p> {/* Subtexto */}
+            </div>
+
+            {/* Grade de Prints de Métricas (substituindo carrossel) */}
+            <div class="metrics-grid">
+                 {/* Prints de Métricas - 6 links fornecidos. Corrigido nomes de arquivo e adicionado ?raw=true */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Feedback--Sinuca-2.5-milhoes-de-views-html.png?raw=true" alt="Métrica - Sinuca 2.5 milhões views">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Feedback-Dicas-SP-by-Yuri-Cabelo-%234-html.png?raw=true" alt="Métrica - Dicas SP #4">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Feedback-Dicas-SP-by-Yuri-Cabelo-%234.png-html.png?raw=true" alt="Métrica - Dicas SP #4 (Segundo print)"> {/* Nome de arquivo original mantido */}
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Feedback-Galotube-CTR-ALTO-HTML.png?raw=true" alt="Métrica - Galotube CTR Alto">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Feedback-SP-by-Yuri-Cabelo-%23-HTML.png?raw=true" alt="Métrica - SP by Yuri Cabelo">
+                <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Feedback-Tiago-Lopes-by-Yuri-Cabelo--732K-VIWES-HTML.png?raw=true" alt="Métrica - Tiago Lopes 732K Views">
+            </div>
+         </div>
+    </section>
+
+    <section id="portfolio" class="py-16 bg-gray-50"> {/* Cor de fundo cinza claro */}
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Vídeos <span class="gradient-text">Editados</span></h2> {/* Título atualizado */}
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Veja alguns exemplos de vídeos completos que editei para diversos canais
+                </p> {/* Subtexto atualizado */}
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Vídeos - 6 links fornecidos, removendo duplicatas e o link "/48" genérico */}
+                {/* Links fornecidos: /0, /50, /2, /51, /52, /5 */}
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="video-container">
+                         <iframe src="https://www.youtube.com/watch?v=l7rS_WwEGOI&t=255s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Vídeo Editado 1</h3> {/* Título genérico, pode ser atualizado manualmente depois */}
+                        <p class="text-gray-600 mb-4">Exemplo de edição de vídeo.</p> {/* Descrição genérica */}
+                         {/* Botão/Link "Ver projeto" removido, iframe já mostra */}
+                    </div>
+                </div>
+
+                 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="video-container">
+                         <iframe src="https://www.youtube.com/watch?v=iDT9osGvL48&t=733s&pp=0gcJCb8Ag7Wk3p_U     " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                         <h3 class="text-xl font-bold mb-2">Vídeo Editado 2</h3>
+                        <p class="text-gray-600 mb-4">Exemplo de edição de vídeo.</p>
+                    </div>
+                </div>
+
+                 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="video-container">
+                         <iframe src="https://www.youtube.com/watch?v=QX132EG_ACc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                         <h3 class="text-xl font-bold mb-2">Vídeo Editado 3</h3>
+                        <p class="text-gray-600 mb-4">Exemplo de edição de vídeo.</p>
+                    </div>
+                </div>
+
+                 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="video-container">
+                         <iframe src="https://www.youtube.com/watch?v=FCDgmIQbDDQ     " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                         <h3 class="text-xl font-bold mb-2">Vídeo Editado 4</h3>
+                        <p class="text-gray-600 mb-4">Exemplo de edição de vídeo.</p>
+                    </div>
+                </div>
+
+                 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="video-container">
+                         <iframe src="https://www.youtube.com/watch?v=KgaWnxn8mtQ&t=1377s     " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                         <h3 class="text-xl font-bold mb-2">Vídeo Editado 5</h3>
+                        <p class="text-gray-600 mb-4">Exemplo de edição de vídeo.</p>
+                    </div>
+                </div>
+
+                 <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all project-card">
+                    <div class="video-container">
+                         <iframe src="https://www.youtube.com/watch?v=slF38CvJFgQ&t=7s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                         <h3 class="text-xl font-bold mb-2">Vídeo Editado 6</h3>
+                        <p class="text-gray-600 mb-4">Exemplo de edição de vídeo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            {/* Botão "Ver mais projetos" removido, pois esta seção foca em 6 exemplos */}
+             <div class="text-center mt-12 hidden"> {/* Manteve a div centralizada, mas escondeu o botão */}
+                <a href="#" class="px-6 py-3 border border-gray-300 rounded-full font-medium hover:bg-gray-50 transition-all inline-flex items-center">
+                    Ver mais projetos
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16"> {/* Ajustado para não ter o mesmo fundo da seção anterior */}
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Minhas <span class="gradient-text">Habilidades</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Domínio das principais ferramentas e técnicas para edição de vídeo e criação de thumbnails
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Edição de Vídeo</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Adobe Premiere Pro</span>
+                            <span class="text-gray-600">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">After Effects</span>
+                            <span class="text-gray-600">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">DaVinci Resolve</span>
+                            <span class="text-gray-600">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Final Cut Pro</span>
+                            <span class="text-gray-600">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Thumbnails & Design</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Photoshop</span>
+                            <span class="text-gray-600">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Illustrator</span>
+                            <span class="text-gray-600">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Canva</span>
+                            <span class="text-gray-600">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Figma</span>
+                            <span class="text-gray-600">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {/* Estatísticas (Vídeos editados, Thumbnails criadas, etc.) - Mantidas */}
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-play-circle text-4xl gradient-text mb-3"></i>
+                    <h4 class="font-bold mb-1">+500</h4>
+                    <p class="text-gray-600 text-sm">Vídeos editados</p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-image text-4xl gradient-text mb-3"></i>
+                    <h4 class="font-bold mb-1">+1200</h4>
+                    <p class="text-gray-600 text-sm">Thumbnails criadas</p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-users text-4xl gradient-text mb-3"></i>
+                    <h4 class="font-bold mb-1">+80</h4>
+                    <p class="text-gray-600 text-sm">Clientes satisfeitos</p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-clock text-4xl gradient-text mb-3"></i>
+                    <h4 class="font-bold mb-1">5+</h4>
+                    <p class="text-gray-600 text-sm">Anos de experiência</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Seção de Depoimentos - Atualizada com novos depoimentos e fotos */}
+    <section id="testimonials" class="py-16 bg-gray-50"> {/* Ajustado fundo para alternar */}
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Depoimentos de <span class="gradient-text">Clientes</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    O que dizem sobre meu trabalho
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Depoimento 1: Gabe Zanqui */}
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                         {/* Foto Gabe Zanqui - Link 1 */}
+                        <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Captura%20de%20tela%202025-04-24%20180004.png?raw=true" alt="Foto Gabe Zanqui" >
+                        <div>
+                            <h4 class="font-bold">Gabe Zanqui</h4>
+                            <p class="client-info">Criadora de conteúdo de beleza com 1M+ inscritos</p> {/* Cargo/Canal */}
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        “Eu amei a edição! Ele tem o timing perfeito. Fui atrás do Yuri pra substituir nosso antigo editor e, desde a primeira entrega, fiquei impressionada com a sensibilidade do olhar dele.”
+                    </p>
+                    {/* Estrelas removidas conforme novos depoimentos não as incluíam */}
+                </div>
+                
+                {/* Depoimento 2: Edu e Carol, Turistando SP */}
+                 <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        {/* Foto Edu e Carol - Link 2 */}
+                        <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Captura%20de%20tela%202025-04-24%20180128.png?raw=true" alt="Foto Edu e Carol, Turistando SP" >
+                        <div>
+                            <h4 class="font-bold">Edu e Carol</h4>
+                            <p class="client-info">Criadores do canal Turistando SP</p> {/* Cargo/Canal */}
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        “Foram quase 3 anos acompanhando cada fase do canal Turistando SP e evoluindo junto. Sempre entregou tudo no prazo e, acima de tudo, um parceiro que cresce com você, acompanha cada fase do canal e respeita sua identidade em cada detalhe.”
+                    </p>
+                     {/* Estrelas removidas */}
+                </div>
+
+                 {/* Depoimento 3: Tiago Lopes */}
+                 <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                         {/* Foto Tiago Lopes - Link 3 */}
+                        <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Captura%20de%20tela%202025-04-29%20131931.png?raw=true" alt="Foto Tiago Lopes" >
+                        <div>
+                            <h4 class="font-bold">Tiago Lopes</h4>
+                            <p class="client-info">Cliente</p> {/* Cargo/Canal genérico, ajustar se souber */}
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        “O Yuri entende rápido o briefing e entrega exatamente o que imaginamos com qualidade e agilidade. É como ter um parceiro dentro da equipe.”
+                    </p>
+                     {/* Estrelas removidas */}
+                </div>
+
+                 {/* Depoimento 4: Ricardo Alencar, Galotube */}
+                 <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        {/* Foto Ricardo Alencar - Link 4 */}
+                        <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Captura%20de%20tela%202025-04-29%20132222.png?raw=true" alt="Foto Ricardo Alencar" >
+                        <div>
+                            <h4 class="font-bold">Ricardo Alencar</h4>
+                             <p class="client-info">Galotube</p> {/* Cargo/Canal */}
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        “Desde 2021, trabalho com o Yuri. A velocidade e a qualidade do que ele entrega são impressionantes.”
+                    </p>
+                     {/* Estrelas removidas */}
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="py-16 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Vamos <span class="gradient-text">Conversar</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">
+                    Pronto para elevar seu conteúdo com edições profissionais e thumbs impactantes?
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 font-medium">Seu Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-2 font-medium">Seu Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Assunto</label>
+                            <select id="subject" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option value="">Selecione um assunto</option>
+                                <option value="edicao">Edição de Vídeo</option>
+                                <option value="thumb">Criação de Thumbnail</option>
+                                <option value="pacote">Pacote Completo</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 gradient-bg text-white rounded-lg font-medium hover:shadow-lg transition-all">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-800 p-8 rounded-xl h-full">
+                        <h3 class="text-xl font-bold mb-6">Informações de Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <a href="mailto:contato@yurieditor.com" class="text-gray-300 hover:text-white">contato@yurieditor.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Telefone/WhatsApp</h4>
+                                    {/* Substitua pelo seu número */}
+                                    <a href="tel:+5511999999999" class="text-gray-300 hover:text-white">+55 (11) 99999-9999</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Localização</h4>
+                                    <p class="text-gray-300">São Paulo, Brasil</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Horário de Atendimento</h4>
+                                    <p class="text-gray-300">Segunda a Sexta: 9h às 18h</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium mb-4">Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                {/* Substitua # pelos links das suas redes sociais */}
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-purple-600 transition-all">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-600 transition-all">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-red-600 transition-all">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-green-500 transition-all">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-gray-950 text-gray-400">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-bold gradient-text">YURI</a>
+                    <p class="text-sm mt-1">Editor de Vídeos & Thumbmaker</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#home" class="hover:text-white">Início</a>
+                    <a href="#services" class="hover:text-white">Serviços</a>
+                     <a href="#thumbs-premium" class="hover:text-white">Thumbs</a> {/* Link no rodapé */}
+                     <a href="#metricas-reais" class="hover:text-white">Métricas</a> {/* Link no rodapé */}
+                     <a href="#portfolio" class="hover:text-white">Vídeos</a> {/* Link no rodapé */}
+                    <a href="#contact" class="hover:text-white">Contato</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+                <p>© 2023 Yuri - Editor de Vídeos. Todos os direitos reservados.</p> {/* Atualize o ano se necessário */}
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Ajusta o scroll para considerar a altura do cabeçalho fixo
+                    const headerHeight = document.querySelector('nav').offsetHeight; // Obtém a altura da nav
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20; // Ajusta a posição, -20px para um pequeno respiro
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillsSection = document.getElementById('skills');
+            
+            // Verifique se a seção skills existe antes de tentar obter a posição
+            if (!skillsSection) return;
+
+            const skillsPosition = skillsSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (skillsPosition < screenPosition) {
+                skillBars.forEach(bar => {
+                    // Armazena a largura alvo definida no style antes de resetar
+                     const targetWidth = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        // Restaura a largura alvo após um pequeno atraso
+                        bar.style.width = targetWidth;
+                    }, 100); // Pequeno atraso para a transição ser visível
+                });
+                
+                // Remove event listener after animation
+                window.removeEventListener('scroll', animateSkillBars);
+            }
+        };
+        
+        // Use um listener para garantir que a animação ocorra se a página já abrir rolada
+        window.addEventListener('load', animateSkillBars); // Roda ao carregar a página
+        window.addEventListener('scroll', animateSkillBars); // Roda ao rolar
+
+        // Form submission - Mantido como alerta básico
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Aqui você conectaria a um serviço de envio de email (ex: Formspree, Netlify Forms, ou seu próprio backend)
+            // O alerta abaixo é apenas um exemplo de feedback visual.
+            alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso. Entrarei em contato em breve.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
