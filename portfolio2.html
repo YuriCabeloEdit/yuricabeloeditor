@@ -1,0 +1,1251 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yuri Cabelo - Editor de Vídeos & Designer Criativo para YouTube</title>
+    <meta
+      name="description"
+      content="Editor profissional de vídeos e criador de thumbnails para YouTube. Já ajudei mais de 100 canais com +800 thumbnails e +20M de views."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yurieditor.com/" />
+    <meta
+      property="og:title"
+      content="Yuri - Editor de Vídeos & Thumbnails para YouTube"
+    />
+    <meta
+      property="og:description"
+      content="Deixe a edição comigo e foque só em criar. +800 thumbnails criadas e +20M de views gerados."
+    />
+    <meta
+      property="og:image"
+      content="https://yurieditor.com/images/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yurieditor.com/" />
+    <meta
+      property="twitter:title"
+      content="Yuri - Editor de Vídeos & Thumbnails para YouTube"
+    />
+    <meta
+      property="twitter:description"
+      content="Deixe a edição comigo e foque só em criar. +800 thumbnails criadas e +20M de views gerados."
+    />
+    <meta
+      property="twitter:image"
+      content="https://yurieditor.com/images/og-image.jpg"
+    />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                100: "#f0e6ff",
+                500: "#8a2be2",
+                700: "#5f00b7",
+              },
+              secondary: {
+                100: "#ffedd5",
+                500: "#ff7b25",
+                700: "#cc5500",
+              },
+            },
+            backgroundImage: {
+              "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+              "gradient-purple-orange":
+                "linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/css">
+      body {
+          font-family: 'Poppins', sans-serif;
+          scroll-behavior: smooth;
+      }
+
+      .profile-img {
+          box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+          animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0px); }
+      }
+
+      .service-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .btn-primary {
+          background: linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%);
+          transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+      }
+
+      .before-after-container {
+          position: relative;
+      }
+
+      .before-after-label {
+          position: absolute;
+          top: 10px;
+          padding: 5px 10px;
+          border-radius: 20px;
+          font-weight: 600;
+      }
+
+      .before-label {
+          left: 10px;
+          background-color: rgba(255, 123, 37, 0.9);
+          color: white;
+      }
+
+      .after-label {
+          right: 10px;
+          background-color: rgba(138, 43, 226, 0.9);
+          color: white;
+      }
+
+      .testimonial-card {
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .floating-whatsapp {
+          animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1); }
+      }
+
+      .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .thumbnail-slide {
+  max-width: 100%;
+  max-height: 280px;
+  margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+          .thumbnail-slide {
+              max-width: 100%;
+          }
+
+          .video-grid {
+              grid-template-columns: 1fr !important;
+          }
+      }@keyframes bounceSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-soft {
+    animation: bounceSoft 2.4s ease-in-out infinite;
+}
+
+.arrow-outside {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  z-index: 50;
+  cursor: pointer;
+}
+
+.arrow-outside:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-outside i {
+  font-size: 20px;
+  color: #8a2be2; /* roxo forte */
+}
+
+.swiper-button-prev.arrow-outside {
+  left: -60px;
+}
+
+.swiper-button-next.arrow-outside {
+  right: -60px;
+}
+.gradient-text {
+  background: linear-gradient(to right, #8a2be2, #ff7b25);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+</style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a
+          href="#"
+          class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+        >
+          Yuri Cabelo
+        </a>
+        <div class="hidden md:flex space-x-8">
+          <a href="#services" class="hover:text-primary-500 transition"
+            >Serviços</a
+          >
+          <a href="#thumbnails" class="hover:text-primary-500 transition"
+            >Thumbnails</a
+          >
+          <a href="#videos" class="hover:text-primary-500 transition">Vídeos</a>
+          <a href="#testimonials" class="hover:text-primary-500 transition"
+            >Depoimentos</a
+          >
+          <a href="#contact" class="hover:text-primary-500 transition"
+            >Contato</a
+          >
+        </div>
+        <a
+          href="https://wa.me/5531992862866"
+          class="hidden md:block btn-primary text-white px-6 py-2 rounded-full font-medium"
+        >
+          WhatsApp
+        </a>
+        <button id="mobile-menu-button" class="md:hidden text-gray-700">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pb-4">
+        <div class="flex flex-col space-y-3">
+          <a
+            href="#services"
+            class="block py-2 hover:text-primary-500 transition"
+            >Serviços</a
+          >
+          <a
+            href="#thumbnails"
+            class="block py-2 hover:text-primary-500 transition"
+            >Thumbnails</a
+          >
+          <a href="#videos" class="block py-2 hover:text-primary-500 transition"
+            >Vídeos</a
+          >
+          <a
+            href="#testimonials"
+            class="block py-2 hover:text-primary-500 transition"
+            >Depoimentos</a
+          >
+          <a
+            href="#contact"
+            class="block py-2 hover:text-primary-500 transition"
+            >Contato</a
+          >
+          <a
+            href="https://wa.me/5531992862866"
+            class="btn-primary text-white px-6 py-2 rounded-full font-medium text-center"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section Refinada -->
+    <section class="relative py-20 bg-cover bg-center bg-no-repeat text-white" style="background-image: url('https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/hero-yuri-capa.png?raw=true')">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 lg:pr-12 backdrop-blur-sm bg-black/10 rounded-xl p-6 mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow-md">
+                Tá carregando o canal <span class="text-orange-300">nas costas?</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl text-white/90 mb-6">
+                O que era pra ser leve, virou sobrecarga? Eu posso resolver isso agora.
+            </h2>
+            <p class="text-white/80 mb-8 max-w-lg leading-relaxed">
+                Já ajudei <span class="font-bold text-white">100+ criadores</span> a tirar o peso da edição das costas.<br />
+                Foram mais de <span class="font-bold text-white">800 thumbnails</span> e vídeos com <span class="font-bold text-white">20 milhões de views</span>
+                <br /><br />
+                Se criar virou cansaço... talvez o que falta é alguém de confiança do seu lado.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="https://wa.me/5531992862866" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">
+                Falar no WhatsApp
+              </a>
+              <a href="#services" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-700 transition">
+                Ver serviços
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="servicos" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      
+            <!-- Card 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+              <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                <i class="fas fa-film text-primary-500 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-2">Edição com Ritmo e Leveza</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> Cortes precisos que mantêm o vídeo dinâmico até o fim</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> Zooms e efeitos sonoros que destacam os momentos certos</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> Cenas engraçadas, memes e inserções que humanizam seu conteúdo</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> Leveza, fluidez e ritmo que prendem o público sem pesar</li>
+              </ul>
+              <p class="mt-4 text-xs text-gray-500 italic">“É como se o vídeo respirasse melhor. E o público sente isso de verdade.”</p>
+            </div>
+      
+            <!-- Card 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+              <div class="w-14 h-14 rounded-full bg-secondary-100 flex items-center justify-center mb-4">
+                <i class="fas fa-image text-secondary-500 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-2">Thumbnails com Estratégia de Clique</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Composição que atrai o olhar em menos de 1 segundo</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Expressões visuais que ativam curiosidade e emoção</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Cores e contrastes pensados para parar o scroll</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Textos curtos, fortes e legíveis até no celular</li>
+              </ul>
+              <p class="mt-4 text-xs text-gray-500 italic">“A thumbnail é o convite. Quando ela acerta, o clique vem sem pensar.”</p>
+            </div>
+      
+            <!-- Card 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+              <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                <i class="fas fa-magic text-primary-500 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-2">Pacote Estratégico Completo</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> Vídeo finalizado + thumbnail otimizada</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> SEO estratégico: título, tags e descrição</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> Análise do que funcionou (ou não) e por quê</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-primary-500 mr-2 mt-1"></i> Acompanhamento para escalar seu canal</li>
+              </ul>
+              <p class="mt-4 text-xs text-gray-500 italic">“Você só grava. O resto, eu entrego pronto e com estratégia.”</p>
+            </div>
+      
+            <!-- Card 4 -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+              <div class="w-14 h-14 rounded-full bg-secondary-100 flex items-center justify-center mb-4">
+                <i class="fas fa-chalkboard-teacher text-secondary-500 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-2">Mentoria Estratégica 1:1</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Diagnóstico real do seu conteúdo e posicionamento</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Orientações práticas para reter e engajar</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Feedback personalizado de vídeos e thumbnails</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-secondary-500 mr-2 mt-1"></i> Suporte por WhatsApp durante 7 dias</li>
+              </ul>
+              <p class="mt-4 text-xs text-gray-500 italic">“Você não precisa crescer no escuro. Te mostro o caminho com clareza e estratégia.”</p>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+
+    <!-- Thumbnails Section -->
+    <section id="thumbnails" class="pt-2 pb-4 bg-gray-50">
+
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col items-center gap-0">
+            <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-2 text-center">
+              <span class="inline-block">🎯 Thumbnails que Param o Scroll</span><br />
+              <span class="text-primary-500">e Disparam o Clique</span>
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base text-center max-w-xl mx-auto">
+              Designs que despertam curiosidade, criam tensão visual e fazem o público clicar — mesmo antes de ler o título do vídeo.
+            </p>
+          </div>
+        </div>
+  
+      <!-- Thumbnails Carousel -->
+      <div class="overflow-hidden leading-none">
+        <div class="swiper thumbnails-swiper mt-8 mb-2 max-w-7xl mx-auto px-4 min-h-[520px] md:min-h-[580px]">
+          <div class="swiper-wrapper !mt-0 !pt-0">
+        
+        <!-- Thumbnail 1 -->
+        <div class="swiper-slide flex items-center justify-center">
+            <div class="thumbnail-slide">
+              <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/Thumb-Premium-Dinner--Turistando-by-Yuri-Cabelo.png?raw=true"
+              alt="Thumbnail Dinner Turistando"alt="Thumbnail 2" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+
+            </div>
+          </div>
+  
+        <!-- Thumbnail 2 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Premium--Santa-Coxinha-Turistando-SP.png" alt="Thumbnail 2" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 3 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Pro-Galotube-Out-2024-d65vb.png" alt="Thumbnail 3" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 4 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Premium-K-Tech-%23-Armor-28-ultra.png" alt="Thumbnail 4" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 5 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Premium-%2316b--Pipoca.png" alt="Thumbnail 5" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 6 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb--Premium-Tiago-Novembro-2024-%236.png" alt="Thumbnail 6" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 7 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/Thumb-Premium--Mundo-da-Sinuca--%231-by-Yuri-Cabelo.png" alt="Thumbnail 7" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 8 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/Thumb-Premium-Gabe-Zanqui-2025-Fev-%235.png" alt="Thumbnail 8" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 9 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb--Premium-Tiago-Agosto-2024-%232.png" alt="Thumbnail 9" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 10 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Premium-Mr-Beats-Turistando-SP.png" alt="Thumbnail 10" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 11 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Premium-Ana-%237--by-Yuri-Cabelo.png" alt="Thumbnail 11" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 12 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb--Premium-Tiago-Junho-2024-%237.png" alt="Thumbnail 12" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 13 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/Thumb-Premium--Mundo-da-Sinuca--%232-by-Yuri-Cabelo.png" alt="Thumbnail 13" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 14 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Pro-Galotube-Nov-2024-da137B.png" alt="Thumbnail 14" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 15 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/thumbs/Thumb-Premium-K-Tech-%23-f150-air-3s.png" alt="Thumbnail 15" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 16 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/Thumb-Premium--Mundo-da-Sinuca--Outubro-%233-by-Yuri-Cabelo.png" alt="Thumbnail 16" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+          </div>
+        </div>
+  
+        <!-- Thumbnail 17 -->
+        <div class="swiper-slide">
+          <div class="thumbnail-slide">
+            <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/Thumb-Premium-Gabe-Zanqui-2025-P%C3%A1scoa-Gabob-%233.png" alt="Thumbnail 17" class="rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full h-auto max-h-[400px]"/>
+        </div>
+  
+      </div>
+      <div class="swiper-pagination mt-2"></div>
+    </div>
+  </div>
+  
+
+        <!-- Antes e Depois Profissional -->
+<section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 pt-0 pb-0">
+
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          ✨ O que muda quando a <span class="gradient-text">thumb certa</span> entra em cena
+        </h2>
+        <p class="text-gray-600 max-w-xl mx-auto">A diferença entre passar despercebido ou gerar milhares de cliques começa aqui. Veja como uma thumbnail estratégica transforma resultados.
+        </p>
+      </div>
+  
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Par 1 -->
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/IMG_3478.png?raw=true" alt="Antes 1" class="w-full h-full object-cover">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-red-500">Antes</p>
+          <p class="text-center text-xs text-gray-400 italic">Turistando SP • 179 mil inscritos</p>
+        </div>
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Thumb-Premium--Santa-Coxinha-Turistando-SP.png?raw=true" alt="Depois" class="w-full h-full object-cover drop-shadow-xl">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-primary-500">Depois (editado por mim)</p>
+
+          <p class="text-center text-xs text-gray-400 italic">Turistando SP • 179 mil inscritos</p>
+        </div>
+      
+        <!-- Par 2 -->
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/IMG_4849.JPG?raw=true" alt="Antes 2" class="w-full h-full object-cover">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-red-500">Antes</p>
+
+          <p class="text-center text-xs text-gray-400 italic">Tiago Lopes • 280 mil inscritos</p>
+        </div>
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Thumb--Premium-Tiago-Novembro-2024-%236.png?raw=true" alt="Depois" class="w-full h-full object-cover drop-shadow-xl">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-primary-500">Depois (editado por mim)</p>
+          <p class="text-center text-xs text-gray-400 italic">Tiago Lopes • 280 mil inscritos</p>
+        </div>
+      
+        <!-- Par 3 -->
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/image00001.jpeg?raw=true" alt="Antes 3" class="w-full h-full object-cover">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-red-500">Antes</p>
+
+          <p class="text-center text-xs text-gray-400 italic">Dayellen Pâmela • 638 mil inscritos</p>
+        </div>
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Thumb-Premium-2025-Fev-%233-Dayellen-P%C3%A2mela.png?raw=true" alt="Depois" class="w-full h-full object-cover drop-shadow-xl">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-primary-500">Depois (editado por mim)</p>
+          <p class="text-center text-xs text-gray-400 italic">Dayellen Pâmela • 638 mil inscritos</p>
+        </div>
+      
+        <!-- Par 4 -->
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Turistando-Schweppes-%234.png?raw=true" alt="Antes 4" class="w-full h-full object-cover">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-red-500">Antes</p>
+
+          <p class="text-center text-xs text-gray-400 italic">Turistando SP • 179 mil inscritos</p>
+        </div>
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Thumb-Premium-Schweppes-%234Turistando-by-Yuri-Cabelo.png?raw=true" alt="Depois" class="w-full h-full object-cover drop-shadow-xl">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-primary-500">Depois (editado por mim)</p>
+          <p class="text-center text-xs text-gray-400 italic">Turistando SP • 179 mil inscritos</p>
+        </div>
+      
+        <!-- Par 5 -->
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/f07d150f-e48f-43d0-a1b6-b6bd596318e1.jpg?raw=true" alt="Antes 5" class="w-full h-full object-cover">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-red-500">Antes</p>
+
+          <p class="text-center text-xs text-gray-400 italic">Mundo da Sinuca • 1,83 milhões de inscritos</p>
+        </div>
+        <div>
+          <div class="aspect-video overflow-hidden rounded-lg shadow-xl">
+            <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/metrics/Thumb-Premium--Mundo-da-Sinuca--Dezembro-%232-by-Yuri-Cabelo.png?raw=true" alt="Depois" class="w-full h-full object-cover drop-shadow-xl">
+          </div>
+          <p class="text-center mt-2 text-sm font-semibold text-primary-500">Depois (editado por mim)</p>
+          <p class="text-center text-xs text-gray-400 italic">Mundo da Sinuca • 1,83 milhões de inscritos</p>
+        </div>
+      </div>
+      
+      
+  </section>
+  
+  
+
+  <!-- Videos Section -->
+<section id="videos" class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-2">
+        🎬 <span class="gradient-text">Edições com Ritmo e Retenção</span>
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-center mb-1">
+        Cada vídeo abaixo foi editado por mim pra manter <span class="gradient-text">a atenção do público</span> até o fim.
+      </p>
+      <p class="text-gray-600 max-w-2xl mx-auto text-center">
+        Com cortes precisos, zooms estratégicos e ritmo leve.<br>
+        O resultado? <span class="gradient-text">Mais retenção</span>, <span class="gradient-text">mais conexão</span> e vídeos com mais impacto — sem perder sua essência.
+      </p>
+    </div>
+
+    <!-- Grid de vídeos responsivo -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <!-- Vídeo 1 -->
+      <div>
+        <div class="relative w-full pb-[56.25%] rounded-xl shadow-lg overflow-hidden max-h-[360px]">
+          <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/l7rS_WwEGOI" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Bloco de texto abaixo do vídeo -->
+        <p class="mt-2 text-center text-sm font-semibold text-gray-800">
+          “Testando Maquiagens Da Sheglam” – edição ágil e divertida que valoriza cada detalhe 💄✨
+        </p>
+        <p class="text-center text-xs text-gray-500">
+          Gabe Zanqui – 1,01 milhão de inscritos
+        </p>
+      </div>
+
+      <!-- Vídeo 2 -->
+      <div>
+        <div class="relative w-full pb-[56.25%] rounded-xl shadow-lg overflow-hidden max-h-[360px]">
+          <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/iDT9osGvL48" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="mt-2 text-center text-sm font-semibold text-gray-800">
+          “Ovos de Páscoa com brinquedos 2025” – cortes ágeis e edição divertida pra prender até o final 🐰🍫
+        </p>
+        <p class="text-center text-xs text-gray-500">
+          Gabe Zanqui – 1,01 milhão de inscritos
+        </p>
+      </div>
+
+      <!-- Vídeo 3 -->
+      <div>
+        <div class="relative w-full pb-[56.25%] rounded-xl shadow-lg overflow-hidden max-h-[360px]">
+          <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/QX132EG_ACc" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="mt-2 text-center text-sm font-semibold text-gray-800">
+          “Restaurante de UM PRATO só” – edição elegante e fluida que valoriza cada detalhe do lugar 🥩🌇
+        </p>
+        <p class="text-center text-xs text-gray-500">
+          Turistando SP – 178 mil inscritos
+        </p>
+      </div>
+
+      <!-- Vídeo 4 -->
+      <div>
+        <div class="relative w-full pb-[56.25%] rounded-xl shadow-lg overflow-hidden max-h-[360px]">
+          <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/FCDgmIQbDDQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="mt-2 text-center text-sm font-semibold text-gray-800">
+          “Hamburgueria do MrBeast em SP” – edição dinâmica que destaca cada sabor e reação 🍔🎥
+        </p>
+        <p class="text-center text-xs text-gray-500">
+          Turistando SP – 178 mil inscritos
+        </p>
+      </div>
+
+      <!-- Vídeo 5 -->
+      <div>
+        <div class="relative w-full pb-[56.25%] rounded-xl shadow-lg overflow-hidden max-h-[360px]">
+          <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/KgaWnxn8mtQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="mt-2 text-center text-sm font-semibold text-gray-800">
+          “Recebidão Com Gabob” – cortes rápidos, ritmo leve e foco nas reações mais autênticas 📦💬
+        </p>
+        <p class="text-center text-xs text-gray-500">
+          Gabe Zanqui – 1,01 milhão de inscritos
+        </p>
+      </div>
+
+      <!-- Vídeo 6 -->
+      <div>
+        <div class="relative w-full pb-[56.25%] rounded-xl shadow-lg overflow-hidden max-h-[360px]">
+          <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/slF38CvJFgQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="mt-2 text-center text-sm font-semibold text-gray-800">
+          “Rodízio de coxinha em SP” – edição gostosa de assistir, com cortes saborosos e ritmo envolvente 🧆🔥
+        </p>
+        <p class="text-center text-xs text-gray-500">
+          Turistando SP – 178 mil inscritos
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-sm text-gray-600 mt-6">
+        Já imaginou seus vídeos performando com esse nível de cuidado? Ou ter alguém pra editar com leveza, estratégia e zero enrolação?
+      </p>
+      <p class="text-sm text-gray-600 mt-2">
+        Bora conversar rapidinho no WhatsApp e entender se faz sentido pro seu canal.
+      </p>
+      <a href="https://wa.me/5531992862866" target="_blank"
+        class="mt-4 inline-block bg-primary-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-primary-600 transition">
+        Começar agora com um editor de confiança 🎬
+
+      </a>
+    </div>
+  </div>
+  <div class="text-center pb-12"></div>
+</section>
+      
+      
+      
+      
+      
+
+  <!-- Métricas Reais dos Projetos -->
+<section class="py-16 bg-white">
+  <div class="text-center mb-12 px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+      <span class="inline-block w-5 h-5 bg-primary-500 rounded-sm mr-2 align-middle"></span>
+      <span class="align-middle">
+        <span class="text-primary-500">📊 Métricas Reais</span> dos Projetos
+      </span>
+    </h2>
+    <p class="mt-2 text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+      <span class="text-primary-500 font-semibold">Resultados que mostram na prática</span> 🧠:
+      <span class="text-gray-800 font-semibold">o impacto de uma boa edição</span> 🎯
+    </p>
+  </div>
+  
+    <!-- Swiper Container -->
+    <div class="swiper metrics-swiper w-full max-w-4xl mx-auto relative px-4">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Feedback--Sinuca-2.5-milhoes-de-views-html.png" alt="Métrica 1" class="w-full h-[500px] object-contain rounded-xl shadow-2xl mx-auto">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Feedback-Dicas-SP-by-Yuri-Cabelo-%234-html.png" alt="Métrica 2" class="w-full h-[500px] object-contain rounded-xl shadow-2xl mx-auto">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Feedback-Galotube-CTR-ALTO-HTML.png" alt="Métrica 3" class="w-full h-[500px] object-contain rounded-xl shadow-2xl mx-auto">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Feedback-SP-by-Yuri-Cabelo-%23-HTML.png" alt="Métrica 4" class="w-full h-[500px] object-contain rounded-xl shadow-2xl mx-auto">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Feedback-Tiago-Lopes-by-Yuri-Cabelo--732K-VIWES-HTML.png" alt="Métrica 5" class="w-full h-[500px] object-contain rounded-xl shadow-2xl mx-auto">
+        </div>
+      </div>
+  
+     <!-- Pagination & Arrows -->
+     <div class="swiper-button-prev arrow-outside">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="swiper-button-next arrow-outside">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+  </section>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 px-4 max-w-6xl mx-auto mt-8">
+
+    <!-- Card 1 -->
+    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition duration-300 hover:-translate-y-1 hover:scale-105 animate-bounce-soft text-center">
+      <i class="fas fa-play-circle text-4xl bg-gradient-to-r from-purple-500 to-orange-400 text-white rounded-full p-3 mb-3"></i>
+      <h4 class="font-bold mb-1">+400</h4>
+      <p class="text-gray-600 text-sm">Vídeos editados</p>
+    </div>
+  
+    <!-- Card 2 -->
+    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition duration-300 hover:-translate-y-1 hover:scale-105 animate-bounce-soft text-center">
+      <i class="fas fa-image text-4xl bg-gradient-to-r from-purple-500 to-orange-400 text-white rounded-full p-3 mb-3"></i>
+      <h4 class="font-bold mb-1">+1200</h4>
+      <p class="text-gray-600 text-sm">Thumbnails criadas</p>
+    </div>
+  
+    <!-- Card 3 -->
+    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition duration-300 hover:-translate-y-1 hover:scale-105 animate-bounce-soft text-center">
+      <i class="fas fa-users text-4xl bg-gradient-to-r from-purple-500 to-orange-400 text-white rounded-full p-3 mb-3"></i>
+      <h4 class="font-bold mb-1">+100</h4>
+      <p class="text-gray-600 text-sm">Clientes satisfeitos</p>
+    </div>
+  
+    <!-- Card 4 -->
+    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition duration-300 hover:-translate-y-1 hover:scale-105 animate-bounce-soft text-center">
+      <i class="fas fa-clock text-4xl bg-gradient-to-r from-purple-500 to-orange-400 text-white rounded-full p-3 mb-3"></i>
+      <h4 class="font-bold mb-1">5+</h4>
+      <p class="text-gray-600 text-sm">Anos de experiência</p>
+    </div>
+  
+  </div>
+  
+    </section>
+    <!-- Testimonials Section -->
+<section id="testimonials" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Depoimentos de <span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Clientes</span>
+          </h2>
+          
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          O que dizem sobre meu trabalho
+        </p>
+      </div>
+  
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        <!-- CARD 1: Ricardo Alencar -->
+        <div class="bg-white p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img alt="Ricardo Alencar" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Captura%20de%20tela%202025-04-24%20180004.png" />
+              </div>
+              <div>
+                <h4 class="font-bold">Ricardo Alencar</h4>
+              </div>
+            </div>
+            <p class="text-gray-700 italic">
+              “Desde 2021, trabalho com o Yuri. A velocidade e a qualidade do que ele entrega são impressionantes.”
+            </p>
+            <div class="mt-4 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          
+  
+        <!-- CARD 2: Edu e Carol -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition duration-300 hover:-translate-y-1">
+
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden">
+              <img alt="Edu e Carol" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Captura%20de%20tela%202025-04-29%20131931.png" />
+            </div>
+            <div>
+              <h4 class="font-bold">Edu e Carol</h4>
+            </div>
+          </div>
+          <p class="text-gray-700 italic">
+            “Foram quase 3 anos acompanhando cada fase do canal Turistando SP e evoluindo junto. Sempre entregou tudo no prazo e, acima de tudo, um parceiro que cresce com você, acompanha cada fase do canal e respeita sua identidade em cada detalhe.”
+          </p>
+          <div class="flex mt-4 text-yellow-400">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+  
+        <!-- CARD 3: Tiago Lopes -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition duration-300 hover:-translate-y-1">
+
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden">
+              <img alt="Tiago Lopes" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Captura%20de%20tela%202025-04-24%20180128.png" />
+            </div>
+            <div>
+              <h4 class="font-bold">Tiago Lopes</h4>
+            </div>
+          </div>
+          <p class="text-gray-700 italic">
+            “O Yuri entende rápido o briefing e entrega exatamente o que imaginamos com qualidade e agilidade. É como ter um parceiro dentro da equipe.”
+          </p>
+          <div class="flex mt-4 text-yellow-400">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+  
+        <!-- CARD 4: Gabe Zanqui -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition duration-300 hover:-translate-y-1">
+
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden">
+              <img alt="Gabe Zanqui" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/YuriCabeloEdit/yuricabeloeditor/main/assets/metrics/Captura%20de%20tela%202025-04-29%20132222.png" />
+            </div>
+            <div>
+              <h4 class="font-bold">Gabe Zanqui</h4>
+            </div>
+          </div>
+          <p class="text-gray-700 italic">
+            “Eu amei a edição! Ele tem o timing perfeito. Fui atrás do Yuri pra substituir nosso antigo editor e, desde a primeira entrega, fiquei impressionada com a sensibilidade do olhar dele.”
+          </p>
+          <div class="flex mt-4 text-yellow-400">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+    <script>
+      new Swiper(".testimonials-swiper", {
+        loop: true,
+        autoplay: { delay: 5000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        slidesPerView: 1,
+        spaceBetween: 24,
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 }
+        }
+      });
+    </script>
+  </section>
+  
+  
+  
+  
+  <script>
+    new Swiper('.metrics-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      slidesPerView: 1,
+      spaceBetween: 24,
+      effect: 'slide',
+    });
+  </script>
+  
+  
+  
+
+   <!-- Final CTA com contraste otimizado -->
+<section class="py-20 bg-gradient-to-br from-[#3a0ca3] via-[#7209b7] to-[#f72585] text-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+  
+      <!-- Formulário -->
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white">Vamos <span class="text-secondary-300">Conversar</span></h2>
+        <p class="text-white/90 mb-8">Pronto para elevar seu conteúdo com edições profissionais e thumbs impactantes?</p>
+  
+        <form class="space-y-6">
+          <div>
+            <label for="name" class="block mb-1 text-white">Seu Nome</label>
+            <input type="text" id="name" class="w-full rounded-md px-4 py-3 bg-white text-gray-800 placeholder:text-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-white" placeholder="Digite seu nome" />
+          </div>
+          <div>
+            <label for="email" class="block mb-1 text-white">Seu Email</label>
+            <input type="email" id="email" class="w-full rounded-md px-4 py-3 bg-white text-gray-800 placeholder:text-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-white" placeholder="Digite seu email" />
+          </div>
+          <div>
+            <label for="subject" class="block mb-1 text-white">Assunto</label>
+            <select id="subject" class="w-full rounded-md px-4 py-3 bg-white text-gray-800 placeholder:text-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-white">
+              <option>Selecione um assunto</option>
+              <option>Orçamento de edição</option>
+              <option>Criação de thumbnails</option>
+              <option>Parcerias e outros</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block mb-1 text-white">Mensagem</label>
+            <textarea id="message" rows="4" class="w-full rounded-md px-4 py-3 bg-white text-gray-800 placeholder:text-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-white" placeholder="Escreva sua mensagem..."></textarea>
+          </div>
+          <button type="submit" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-full shadow-lg hover:scale-105 transition font-semibold">
+            Enviar Mensagem
+          </button>
+        </form>
+      </div>
+  
+      <!-- Informações de Contato -->
+      <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 text-white border border-white/10">
+        <h3 class="text-xl font-bold mb-6 text-white">Informações de Contato</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-envelope text-secondary-300 text-xl"></i>
+            <div>
+              <p class="font-medium">Email</p>
+              <p class="text-white/90 text-sm">contato@yurieditor.com</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-phone text-secondary-300 text-xl"></i>
+            <div>
+              <p class="font-medium">Telefone/WhatsApp</p>
+              <p class="text-white/90 text-sm">+55 (11) 99999-9999</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-map-marker-alt text-secondary-300 text-xl"></i>
+            <div>
+              <p class="font-medium">Localização</p>
+              <p class="text-white/90 text-sm">São Paulo, Brasil</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-clock text-secondary-300 text-xl"></i>
+            <div>
+              <p class="font-medium">Horário de Atendimento</p>
+              <p class="text-white/90 text-sm">Segunda a Sexta: 9h às 18h</p>
+            </div>
+          </li>
+        </ul>
+  
+        <div class="mt-8">
+          <p class="font-medium mb-2">Redes Sociais</p>
+          <div class="flex space-x-4">
+            <a href="https://instagram.com" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+            <a href="https://youtube.com" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-youtube text-2xl"></i></a>
+            <a href="https://wa.me/5531992862866" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-whatsapp text-2xl"></i></a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+      
+      
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a
+              href="#"
+              class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+            >
+              Yuri Cabelo
+            </a>
+            <p class="text-gray-400 mt-2">
+              Edição profissional para criadores de conteúdo
+            </p>
+          </div>
+
+          <div class="flex space-x-6">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-youtube text-2xl"></i>
+            </a>
+            <a
+              href="https://behance.net"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-behance text-2xl"></i>
+            </a>
+            <a
+              href="https://wa.me/5531992862866"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center md:text-left"
+        >
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 mb-4 md:mb-0">
+              © 2023 Yuri Editor. Todos os direitos reservados.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                >Termos de Serviço</a
+              >
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                >Política de Privacidade</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (Mobile) -->
+    <a
+      href="https://wa.me/5531992862866"
+      class="fixed bottom-6 right-6 md:hidden bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg floating-whatsapp z-50"
+    >
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+      // Mobile Menu Toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Initialize Swipers
+      document.addEventListener("DOMContentLoaded", function () {
+        // Thumbnails Swiper
+        const thumbnailsSwiper = new Swiper(".thumbnails-swiper", {
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+          },
+        });
+
+        // Testimonials Swiper
+        const testimonialsSwiper = new Swiper(".testimonials-swiper", {
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          new Swiper('.metrics-swiper', {
+            loop: true,
+            autoplay: {
+              delay: 4000,
+              disableOnInteraction: false
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev'
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            effect: 'slide'
+          });
+        });
+      </script>
+  </body>
+</html>
