@@ -1,96 +1,68 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yuri Cabelo - Editor de Vídeos & Designer Criativo para YouTube</title>
-   <link rel="icon" type="image/png" href="favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuri Cabelo – Editor de Vídeos & Designer Criativo para YouTube</title>
+  <link rel="icon" type="image/png" href="favicon-32x32.png" />
 
-    <meta
-      name="description"
-      content="Editor profissional de vídeos e criador de thumbnails para YouTube. Já ajudei mais de 100 canais com +800 thumbnails e +20M de views."
-    />
+  <!-- SEO -->
+  <meta name="description" content="Portfólio de Yuri Cabelo – editor de vídeos e designer de thumbnails para YouTube. Já ajudei mais de 100 canais com +800 thumbnails e +20M de views." />
+  <meta name="keywords" content="edição de vídeo, thumbnail YouTube, editor YouTube, portfólio criador, Yuri Cabelo" />
+  <meta name="author" content="Yuri Cabelo" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yurieditor.com/" />
-    <meta
-      property="og:title"
-      content="Yuri - Editor de Vídeos & Thumbnails para YouTube"
-    />
-    <meta
-      property="og:description"
-      content="Deixe a edição comigo e foque só em criar. +800 thumbnails criadas e +20M de views gerados."
-    />
-    <meta
-      property="og:image"
-      content="https://yurieditor.com/images/og-image.jpg"
-    />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yuricabeloeditor.com.br/" />
+  <meta property="og:title" content="Yuri Cabelo – Editor de Vídeos & Designer de Thumbnails para YouTube" />
+  <meta property="og:description" content="Veja meu portfólio com vídeos editados e thumbnails que geram resultado de verdade." />
+  <meta property="og:image" content="https://yuricabeloeditor.com.br/capa-og.jpg" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://yurieditor.com/" />
-    <meta
-      property="twitter:title"
-      content="Yuri - Editor de Vídeos & Thumbnails para YouTube"
-    />
-    <meta
-      property="twitter:description"
-      content="Deixe a edição comigo e foque só em criar. +800 thumbnails criadas e +20M de views gerados."
-    />
-    <meta
-      property="twitter:image"
-      content="https://yurieditor.com/images/og-image.jpg"
-    />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://yuricabeloeditor.com.br/" />
+  <meta name="twitter:title" content="Yuri Cabelo – Editor para YouTube" />
+  <meta name="twitter:description" content="Edição com ritmo, leveza e foco em resultado. Veja o portfólio real." />
+  <meta name="twitter:image" content="https://yuricabeloeditor.com.br/capa-og.jpg" />
 
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              poppins: ["Poppins", "sans-serif"],
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+          },
+          colors: {
+            primary: {
+              100: "#f0e6ff",
+              500: "#8a2be2",
+              700: "#5f00b7",
             },
-            colors: {
-              primary: {
-                100: "#f0e6ff",
-                500: "#8a2be2",
-                700: "#5f00b7",
-              },
-              secondary: {
-                100: "#ffedd5",
-                500: "#ff7b25",
-                700: "#cc5500",
-              },
-            },
-            backgroundImage: {
-              "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-              "gradient-purple-orange":
-                "linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%)",
+            secondary: {
+              100: "#ffedd5",
+              500: "#ff7b25",
+              700: "#cc5500",
             },
           },
+          backgroundImage: {
+            "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+            "gradient-purple-orange": "linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%)",
+          },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
     <style type="text/css">
       body {
