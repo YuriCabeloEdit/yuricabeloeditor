@@ -1028,46 +1028,54 @@
             <div>
               <h4 class="font-bold">Gabe Zanqui</h4>
             </div>
-          </div>
-          <p class="text-gray-700 italic">
-            “Eu amei a edição! Ele tem o timing perfeito. Fui atrás do Yuri pra substituir nosso antigo editor e, desde a primeira entrega, fiquei impressionada com a sensibilidade do olhar dele.”
-          </p>
-          <div class="flex mt-4 text-yellow-400">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  
-  <script>
-    new Swiper(".testimonials-swiper", {
-      loop: true,
-      autoplay: { delay: 5000, disableOnInteraction: false },
-      pagination: { el: ".swiper-pagination", clickable: true },
-      slidesPerView: 1,
-      spaceBetween: 24,
-      breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-        1280: { slidesPerView: 4 }
-      }
-    });
-  </script>
-  
-  <hr class="my-12 border-gray-300 w-2/3 mx-auto" />
-  
-  <section class="text-center py-12 bg-white">
-    <p class="text-lg font-medium">
-      Curtiu o que viu aqui? Bora trocar uma ideia sem enrolação?
-    </p>
-    <a href="https://wa.me/5531992862866" target="_blank"
-       class="mt-4 inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition-all">
-      Me chama no WhatsApp
-    </a>
-  </section>
-  <hr class="my-12 border-t border-gray-300 w-2/3 mx-auto" />
+            </div>
+            <p class="text-gray-700 italic">
+              “Eu amei a edição! Ele tem o timing perfeito. Fui atrás do Yuri pra substituir nosso antigo editor e, desde a primeira entrega, fiquei impressionada com a sensibilidade do olhar dele.”
+            </p>
+            <div class="flex mt-4 text-yellow-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            </div>
+            </div>
+            </div>
+            </section>
+            
+            <script>
+              new Swiper(".testimonials-swiper", {
+                loop: true,
+                autoplay: { 
+                  delay: 5000, 
+                  disableOnInteraction: false 
+                },
+                pagination: { 
+                  el: ".swiper-pagination", 
+                  clickable: true 
+                },
+                slidesPerView: 1,  // Deixando apenas 1 slide por vez
+                spaceBetween: 24,
+              });
+            </script>
+            
+            <hr class="my-12 border-gray-300 w-2/3 mx-auto" />
+            
+            <section class="text-center py-12 bg-white">
+              <p class="text-lg font-medium">
+                Curtiu o que viu aqui? Bora trocar uma ideia sem enrolação?
+              </p>
+            
+              <hr class="my-12 border-gray-300 w-2/3 mx-auto" />
+            
+              <section class="text-center py-12 bg-white">
+                <p class="text-lg font-medium">
+                  Curtiu o que viu aqui? Bora trocar uma ideia sem enrolação?
+                </p>
+                <a href="https://wa.me/5531992862866" target="_blank"
+                   class="mt-4 inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition-all">
+                  Me chama no WhatsApp
+                </a>
+              </section>
+            </section>
+            
 
   
   
@@ -1281,14 +1289,15 @@
     delay: 4000,
     disableOnInteraction: false,
   },
-  slidesPerView: 1,         // Sempre 1 thumb por vez
+  slidesPerView: 1, // sempre 1 thumb por vez, inclusive no desktop
   spaceBetween: 0,
-  centeredSlides: true,     // Centraliza a thumb
+  centeredSlides: true,
   pagination: {
     el: ".swiper-pagination",
-    clickable: true
-  }
+    clickable: true,
+  },
 });
+
 
         // Testimonials Swiper
         const testimonialsSwiper = new Swiper(".testimonials-swiper", {
