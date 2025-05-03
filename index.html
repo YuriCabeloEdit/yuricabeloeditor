@@ -480,18 +480,18 @@
       <hr class="my-12 border-t border-gray-300 w-2/3 mx-auto" />
 
     <!-- Thumbnails Section -->
+     
     <section id="thumbnails" class="pt-2 pb-4 bg-gray-50">
-
-        <div class="container mx-auto px-4">
-          <div class="flex flex-col items-center gap-0">
-            <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-2 text-center">
-              <span class="inline-block">🎯 Thumbnails que Param o Scroll</span><br />
-              <span class="text-primary-500">e Disparam o Clique</span>
-            </h2>
-            <p class="text-gray-600 text-sm md:text-base text-center max-w-xl mx-auto">
-              Designs que despertam curiosidade, criam tensão visual e fazem o público clicar — mesmo antes de ler o título do vídeo.
-            </p>
-          </div>
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-6">
+          <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-2 text-center">
+            <span class="inline-block">🎯 Thumbnails que Param o Scroll</span><br />
+            <span class="text-primary-500">e Disparam o Clique</span>
+          </h2>
+          <p class="text-gray-600 max-w-xl mx-auto">
+            Designs que despertam curiosidade, criam tensão visual e fazem o público clicar — mesmo antes de ler o título do vídeo.
+          </p>
+        </div>
         </div>
   
       <!-- Thumbnails Carousel -->
@@ -1276,23 +1276,28 @@
       document.addEventListener("DOMContentLoaded", function () {
         // Thumbnails Swiper
         const thumbnailsSwiper = new Swiper(".thumbnails-swiper", {
-  slidesPerView: 2,
-  spaceBetween: 20,
-  breakpoints: {
-    0: {
-      slidesPerView: 1
-    },
-    768: {
-      slidesPerView: 2
-    },
-    1024: {
-      slidesPerView: 3
-    }
+  loop: true,
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false,
   },
+  slidesPerView: 1,
+  spaceBetween: 20,
   pagination: {
     el: ".swiper-pagination",
-    clickable: true
-  }
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
 });
 
         // Testimonials Swiper
