@@ -2,310 +2,273 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuri Cabelo – Editor de Vídeos & Designer Criativo para YouTube</title>
-  <!-- Animate.css CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link rel="icon" type="image/png" href="favicon-32x32.png" />
-
-  <!-- SEO -->
-  <meta name="description" content="Portfólio de Yuri Cabelo – editor de vídeos e designer de thumbnails para YouTube. Já ajudei mais de 100 canais com +800 thumbnails e +20M de views." />
-  <meta name="keywords" content="edição de vídeo, thumbnail YouTube, editor YouTube, portfólio criador, Yuri Cabelo" />
-  <meta name="author" content="Yuri Cabelo" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yuricabeloeditor.com.br/" />
-  <meta property="og:title" content="Yuri Cabelo – Editor de Vídeos & Designer de Thumbnails para YouTube" />
-  <meta property="og:description" content="Veja meu portfólio com vídeos editados e thumbnails que geram resultado de verdade." />
-  <meta property="og:image" content="https://yuricabeloeditor.com.br/capa-og.jpg" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://yuricabeloeditor.com.br/" />
-  <meta name="twitter:title" content="Yuri Cabelo – Editor para YouTube" />
-  <meta name="twitter:description" content="Edição com ritmo, leveza e foco em resultado. Veja o portfólio real." />
-  <meta name="twitter:image" content="https://yuricabeloeditor.com.br/capa-og.jpg" />
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            poppins: ["Poppins", "sans-serif"],
-          },
-          colors: {
-            primary: {
-              100: "#f0e6ff",
-              500: "#8a2be2",
-              700: "#5f00b7",
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <title>Editor de Vídeo & Thumbnails para YouTube | Yuri Cabelo</title>
+    <meta name="description" content="Portfólio de Yuri Cabelo – editor de vídeos e designer de thumbnails para YouTube. Já ajudei mais de 100 canais com +800 thumbnails e +20M de views." />
+    <meta name="keywords" content="edição de vídeo, thumbnail YouTube, editor YouTube, portfólio criador, Yuri Cabelo" />
+    <meta name="author" content="Yuri Cabelo" />
+  
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yuricabeloeditor.com.br/" />
+    <meta property="og:title" content="Yuri Cabelo – Editor de Vídeos & Designer de Thumbnails para YouTube" />
+    <meta property="og:description" content="Veja meu portfólio com vídeos editados e thumbnails que geram resultado de verdade." />
+    <meta property="og:image" content="https://yuricabeloeditor.com.br/capa-og-v3.jpg" />
+  
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://yuricabeloeditor.com.br/" />
+    <meta name="twitter:title" content="Yuri Cabelo – Editor para YouTube" />
+    <meta name="twitter:description" content="Edição com ritmo, leveza e foco em resultado. Veja o portfólio real." />
+    <meta name="twitter:image" content="https://yuricabeloeditor.com.br/capa-og-v3.jpg" />
+  
+    <!-- Ícone -->
+    <link rel="icon" type="image/png" href="favicon-32x32.png" />
+  
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
             },
-            secondary: {
-              100: "#ffedd5",
-              500: "#ff7b25",
-              700: "#cc5500",
+            colors: {
+              primary: {
+                100: "#f0e6ff",
+                500: "#8a2be2",
+                700: "#5f00b7",
+              },
+              secondary: {
+                100: "#ffedd5",
+                500: "#ff7b25",
+                700: "#cc5500",
+              },
             },
-          },
-          backgroundImage: {
-            "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-            "gradient-purple-orange": "linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%)",
+            backgroundImage: {
+              "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+              "gradient-purple-orange": "linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%)",
+            },
           },
         },
-      },
-    };
-  </script>
-
-    <style type="text/css">
+      };
+    </script>
+  
+    <!-- Estilos Customizados -->
+    <style>
       body {
-          font-family: 'Poppins', sans-serif;
-          scroll-behavior: smooth;
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
       }
-
+  
       .profile-img {
-          box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
-          animation: float 6s ease-in-out infinite;
+        box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+        animation: float 6s ease-in-out infinite;
       }
-
+  
       @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-          100% { transform: translateY(0px); }
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
       }
-
+  
       .service-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
-
+  
       .btn-primary {
-          background: linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%);
-          transition: all 0.3s ease;
+        background: linear-gradient(135deg, #8a2be2 0%, #ff7b25 100%);
+        transition: all 0.3s ease;
       }
-
+  
       .btn-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
       }
-
+  
       .before-after-container {
-          position: relative;
+        position: relative;
       }
-
+  
       .before-after-label {
-          position: absolute;
-          top: 10px;
-          padding: 5px 10px;
-          border-radius: 20px;
-          font-weight: 600;
+        position: absolute;
+        top: 10px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: 600;
       }
-
+  
       .before-label {
-          left: 10px;
-          background-color: rgba(255, 123, 37, 0.9);
-          color: white;
+        left: 10px;
+        background-color: rgba(255, 123, 37, 0.9);
+        color: white;
       }
-
+  
       .after-label {
-          right: 10px;
-          background-color: rgba(138, 43, 226, 0.9);
-          color: white;
+        right: 10px;
+        background-color: rgba(138, 43, 226, 0.9);
+        color: white;
       }
-
+  
       .testimonial-card {
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-          transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
       }
-
+  
       .testimonial-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       }
-
+  
       .floating-whatsapp {
-          animation: pulse 2s infinite;
+        animation: pulse 2s infinite;
       }
-
+  
       @keyframes pulse {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-          100% { transform: scale(1); }
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
       }
-
+  
       .swiper-slide {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-
+  
       .thumbnail-slide {
-  max-width: 100%;
-  max-height: 280px;
-  margin: 0 auto;
+        max-width: 100%;
+        max-height: 280px;
+        margin: 0 auto;
       }
-
+  
       @media (max-width: 768px) {
-          .thumbnail-slide {
-              max-width: 100%;
-          }
-
-          .video-grid {
-              grid-template-columns: 1fr !important;
-          }
-      }@keyframes bounceSoft {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-.animate-bounce-soft {
-    animation: bounceSoft 2.4s ease-in-out infinite;
-}
-
-.arrow-outside {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: white;
-  width: 48px;
-  height: 48px;
-  border-radius: 9999px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-  z-index: 50;
-  cursor: pointer;
-}
-
-.arrow-outside:hover {
-  transform: translateY(-50%) scale(1.1);
-}
-
-.arrow-outside i {
-  font-size: 20px;
-  color: #8a2be2; /* roxo forte */
-}
-
-.swiper-button-prev.arrow-outside {
-  left: -60px;
-}
-
-.swiper-button-next.arrow-outside {
-  right: -60px;
-}
-.gradient-text {
-  background: linear-gradient(to right, #8a2be2, #ff7b25);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
-
-</style>
-
-
-<!-- SEO Básico -->
-<meta name="description" content="Portfólio de Yuri Cabelo – editor de vídeos e designer de thumbnails para YouTube." />
-<meta name="keywords" content="edição de vídeo, thumbnail YouTube, editor YouTube, portfólio criador, Yuri Cabelo" />
-<meta name="author" content="Yuri Cabelo" />
-
-<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
-<meta property="og:title" content="Yuri Cabelo – Editor de Vídeos & Designer de Thumbnails para YouTube" />
-<meta property="og:description" content="Veja meu portfólio com vídeos editados e thumbnails que geram resultado de verdade." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://yuricabeloeditor.com.br/" />
-<meta property="og:image" content="https://yuricabeloeditor.com.br/capa-og-v3.jpg" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Yuri Cabelo – Editor para YouTube" />
-<meta name="twitter:description" content="Edição com ritmo, leveza e foco em resultado. Veja o portfólio real." />
-<meta property="og:image" content="https://yuricabeloeditor.com.br/capa-og-v3.jpg" />
-
-  <!-- SEU CSS do botão flutuante -->
-  <style>
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      background-color: #25D366;
-      color: white;
-      padding: 12px 16px;
-      border-radius: 40px;
-      font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      animation: pulse 2s infinite;
-      transition: background 0.3s ease;
-    }
-
-    .whatsapp-float:hover {
-      background-color: #1ebe5d;
-    }
-
-    .whatsapp-icon-only {
-      padding: 12px;
-      border-radius: 50%;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-    }
-
-    .whatsapp-float img {
-      width: 24px;
-      height: 24px;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+        .thumbnail-slide {
+          max-width: 100%;
+        }
+  
+        .video-grid {
+          grid-template-columns: 1fr !important;
+        }
       }
-      70% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  
+      @keyframes bounceSoft {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
       }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  
+      .animate-bounce-soft {
+        animation: bounceSoft 2.4s ease-in-out infinite;
       }
-    }
-
-    @media screen and (max-width: 768px) {
+  
+      .arrow-outside {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 9999px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        z-index: 50;
+        cursor: pointer;
+      }
+  
+      .arrow-outside:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+  
+      .arrow-outside i {
+        font-size: 20px;
+        color: #8a2be2;
+      }
+  
+      .swiper-button-prev.arrow-outside {
+        left: -60px;
+      }
+  
+      .swiper-button-next.arrow-outside {
+        right: -60px;
+      }
+  
+      .gradient-text {
+        background: linear-gradient(to right, #8a2be2, #ff7b25);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  
+      /* Botão flutuante WhatsApp */
       .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        background-color: #25D366;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        animation: pulse 2s infinite;
+        transition: background 0.3s ease;
+      }
+  
+      .whatsapp-float:hover {
+        background-color: #1ebe5d;
+      }
+  
+      .whatsapp-icon-only {
+        padding: 12px;
+        border-radius: 50%;
+        justify-content: center;
         width: 56px;
         height: 56px;
-        padding: 12px;
-        font-size: 0;
       }
-
-      .whatsapp-float span {
-        display: none;
+  
+      .whatsapp-float img {
+        width: 24px;
+        height: 24px;
       }
-    }
-  </style>
-
-</head>
+  
+      @media screen and (max-width: 768px) {
+        .whatsapp-float {
+          width: 56px;
+          height: 56px;
+          padding: 12px;
+          font-size: 0;
+        }
+  
+        .whatsapp-float span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  
 
 
 
@@ -383,7 +346,7 @@
         </div>
       </div>
     </nav>
-    
+
 <!-- HERO SECTION (refinada com animações suaves e coordenadas) -->
 <section class="relative py-20 bg-cover bg-center bg-no-repeat text-white" style="background-image: url('https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/hero-yuri-capa.png?raw=true')">
   <div class="absolute inset-0 bg-black/10"></div>
