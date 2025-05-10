@@ -867,33 +867,38 @@
     
     <hr class="my-12 border-t border-gray-300 w-2/3 mx-auto" />
     
-    <!-- Bloco Turistando SP -->
-<section class="py-16 bg-white" id="metricas-turistando">
-  <div class="max-w-6xl mx-auto px-4">
-    <h3 class="text-2xl font-semibold mb-2 text-primary-500">
-      📍 Turistando SP – edição + thumbnail com alma de viagem
-    </h3>
-    <p class="text-gray-600 mb-6">
-      Foram quase 3 anos editando cada detalhe dessa jornada. Os prints abaixo mostram como vídeos leves, dinâmicos e com identidade visual consistente transformam views em comunidade real.
+    <!-- Bloco de Métricas – Impacto Visual e Resultado Real -->
+<section class="py-16 bg-white" id="metricas-impacto">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h3 class="text-3xl font-bold text-primary-500 mb-4">📊 Impacto Visual e Resultado Real</h3>
+    <p class="text-gray-700 mb-10">
+      Cada print abaixo mostra como uma thumbnail certeira ou uma edição estratégica gerou <strong>visualizações reais, comentários positivos e evolução visível</strong> nos canais.
     </p>
 
-    <div class="swiper mySwiperTuristando h-[600px]">
-      <div class="swiper-wrapper h-full">
-        <div class="swiper-slide flex items-center justify-center">
+    <!-- Swiper -->
+    <div class="swiper mySwiperMetricas">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
           <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/publico/imagem/m%C3%A9tricas/Print%20Feedback%20Turistando%20SP%20%231.jpg?raw=true" 
-               class="rounded-xl shadow-md max-h-full object-contain" alt="Print Turistando 1" />
+               alt="Turistando SP - print 1" 
+               class="rounded-xl shadow-lg w-full max-h-[600px] object-contain mx-auto" />
         </div>
-        <div class="swiper-slide flex items-center justify-center">
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
           <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/publico/imagem/m%C3%A9tricas/Print%20Feedback%20Turistando%20SP%20%232.jpg?raw=true" 
-               class="rounded-xl shadow-md max-h-full object-contain" alt="Print Turistando 2" />
+               alt="Turistando SP - print 2" 
+               class="rounded-xl shadow-lg w-full max-h-[600px] object-contain mx-auto" />
         </div>
-        <div class="swiper-slide flex items-center justify-center">
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
           <img src="https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/publico/imagem/m%C3%A9tricas/Print%20Feedback%20Turistando%20SP%20%233.jpg?raw=true" 
-               class="rounded-xl shadow-md max-h-full object-contain" alt="Print Turistando 3" />
+               alt="Turistando SP - print 3" 
+               class="rounded-xl shadow-lg w-full max-h-[600px] object-contain mx-auto" />
         </div>
       </div>
 
-      <!-- Botões -->
+      <!-- Navegação -->
       <div class="swiper-button-next text-primary-500"></div>
       <div class="swiper-button-prev text-primary-500"></div>
     </div>
@@ -902,24 +907,21 @@
 
 <!-- Script Swiper -->
 <script>
-  new Swiper(".mySwiperTuristando", {
+  new Swiper(".mySwiperMetricas", {
     slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
+    spaceBetween: 30,
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      prevEl: ".swiper-button-prev",
     },
+    loop: true,
     autoplay: {
-      delay: 6000,
-      disableOnInteraction: false
-    },
-    breakpoints: {
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 }
-    }
+  delay: 5000,
+  disableOnInteraction: false
+}
   });
 </script>
+
 
   <!-- CARD 1: Ricardo Alencar -->
   <div class="bg-white p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:-translate-y-1">
