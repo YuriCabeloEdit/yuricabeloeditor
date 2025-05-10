@@ -347,30 +347,22 @@
       </div>
     </nav>
 
-<!-- HERO SECTION (refinada com animações suaves e coordenadas) -->
-<section class="relative py-20 bg-cover bg-center bg-no-repeat text-white" style="background-image: url('https://github.com/YuriCabeloEdit/yuricabeloeditor/blob/main/assets/thumbs/hero-yuri-capa.png?raw=true')">
-  <div class="absolute inset-0 bg-black/10"></div>
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-    <div class="md:w-1/2 lg:pr-12 backdrop-blur-sm bg-black/10 rounded-xl p-6 mb-12 md:mb-0">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow-md opacity-0 animate__animated animate__fadeInDown animate__delay-0.5s">
-        Tá carregando o canal <span class="text-orange-300">nas costas?</span>
-      </h1>
-      <h2 class="text-xl md:text-2xl text-white/90 mb-6 opacity-0 animate__animated animate__fadeInUp animate__delay-1s">
-        O que era pra ser leve, virou sobrecarga? Eu posso resolver isso agora.
-      </h2>
-      <p class="text-white/80 mb-8 max-w-lg leading-relaxed opacity-0 animate__animated animate__fadeInUp animate__delay-1.5s">
-        Já ajudei <span class="font-bold text-white">100+ criadores</span> a tirar o peso da edição das costas.<br />
-        Foram mais de <span class="font-bold text-white">800 thumbnails</span> e vídeos com <span class="font-bold text-white">20 milhões de views</span><br /><br />
-        Se criar virou cansaço... talvez o que falta é alguém de confiança do seu lado.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate__animated animate__fadeInUp animate__delay-2s">
-        <a href="https://wa.me/5531992862866" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg  transition animate__animated animate__bounceIn animate__delay-3s">
-          Falar no WhatsApp
-        </a>
-        <a href="#servicos" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-700 transition animate__animated animate__bounceIn animate__delay-3.5s">
-          Ver serviços
-        </a>
-      </div>
+<!-- Hero sem imagem, com fundo gradiente -->
+<section id="hero" class="text-white text-center py-28 px-4 bg-gradient-to-b from-purple-700 via-fuchsia-600 to-pink-500">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+      Tá carregando o canal <span class="text-yellow-300">nas costas?</span>
+    </h1>
+    <p class="text-lg mb-6">O que era pra ser leve, virou sobrecarga? Eu posso resolver isso agora.</p>
+    <p class="text-sm mb-4">Já ajudei <strong>100+ criadores</strong> com mais de <strong>800 thumbnails</strong> e <strong>20 milhões de views</strong>.</p>
+
+    <div class="flex flex-col md:flex-row justify-center gap-4 mt-6">
+      <a href="https://wa.me/55SEUNUMERO" class="btn-primary px-6 py-3 rounded-lg font-semibold text-white shadow-lg transition hover:scale-105">
+        Falar no WhatsApp
+      </a>
+      <a href="#servicos" class="bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold shadow-md transition hover:scale-105">
+        Ver serviços
+      </a>
     </div>
   </div>
 </section>
@@ -873,16 +865,6 @@
     <h2 class="text-3xl font-bold mb-4 text-primary-500">
       📊 Impacto Visual e Resultado Real
     </h2>
-    <p class="text-gray-700 max-w-2xl mx-auto">
-      Cada print abaixo mostra como uma thumbnail certeira ou uma edição estratégica gerou
-      <strong>visualizações reais</strong>, <strong>comentários positivos</strong> e <strong>evolução visível</strong> nos canais.
-    </p>
-  </div>
-
- <!-- Carrossel de Métricas -->
-<section class="py-16 bg-white">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h3 class="text-2xl font-bold text-primary-500 mb-2">📊 Impacto Visual e Resultado Real</h3>
     <p class="text-gray-700 max-w-2xl mx-auto mb-8">
       Cada print abaixo mostra como uma thumbnail certeira ou uma edição estratégica gerou
       <strong>visualizações reais</strong>, <strong>comentários positivos</strong> e <strong>evolução visível</strong> nos canais.
@@ -925,19 +907,25 @@
   </div>
 </section>
 
-<!-- Script Swiper -->
+<!-- Swiper CDN + Script de Inicialização -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 <script>
   new Swiper(".mySwiperMetricas", {
     slidesPerView: 1,
     spaceBetween: 30,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
     loop: true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
 </script>
