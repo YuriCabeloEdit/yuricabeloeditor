@@ -1114,224 +1114,24 @@
         </form>
       </div>
   
-      <!-- Informações de Contato -->
-      <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 text-white border border-white/10">
-        <h3 class="text-xl font-bold mb-6 text-white">Informações de Contato</h3>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3">
-            <i class="fas fa-envelope text-secondary-300 text-xl"></i>
-            <div>
-              <p class="font-medium">Email</p>
-              <p class="text-white/90 text-sm">contato@yurieditor.com</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <i class="fas fa-phone text-secondary-300 text-xl"></i>
-            <div>
-              <p class="font-medium">Telefone/WhatsApp</p>
-              <p class="text-white/90 text-sm">+55 (11) 99999-9999</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <i class="fas fa-map-marker-alt text-secondary-300 text-xl"></i>
-            <div>
-              <p class="font-medium">Localização</p>
-              <p class="text-white/90 text-sm">São Paulo, Brasil</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <i class="fas fa-clock text-secondary-300 text-xl"></i>
-            <div>
-              <p class="font-medium">Horário de Atendimento</p>
-              <p class="text-white/90 text-sm">Segunda a Sexta: 9h às 18h</p>
-            </div>
-          </li>
-        </ul>
-  
-        <div class="mt-8">
-          <p class="font-medium mb-2">Redes Sociais</p>
-          <div class="flex space-x-4">
-            <a href="https://instagram.com" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
-            <a href="https://linkedin.com" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
-            <a href="https://youtube.com" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-youtube text-2xl"></i></a>
-            <a href="https://wa.me/5531992862866" target="_blank" class="text-white/90 hover:text-white"><i class="fab fa-whatsapp text-2xl"></i></a>
-          </div>
-        </div>
-      </div>
-  
-    </div>
-  </section>
-      
-      
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-6 md:mb-0">
-            <a
-              href="#"
-              class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
-            >
-              Yuri Cabelo
-            </a>
-            <p class="text-gray-400 mt-2">
-              Edição profissional para criadores de conteúdo
-            </p>
-          </div>
-
-          <div class="flex space-x-6">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              class="text-gray-400 hover:text-white transition"
-            >
-              <i class="fab fa-instagram text-2xl"></i>
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              class="text-gray-400 hover:text-white transition"
-            >
-              <i class="fab fa-youtube text-2xl"></i>
-            </a>
-            <a
-              href="https://behance.net"
-              target="_blank"
-              class="text-gray-400 hover:text-white transition"
-            >
-              <i class="fab fa-behance text-2xl"></i>
-            </a>
-            <a
-              href="https://wa.me/5531992862866"
-              target="_blank"
-              class="text-gray-400 hover:text-white transition"
-            >
-              <i class="fab fa-whatsapp text-2xl"></i>
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="border-t border-gray-800 mt-8 pt-8 text-center md:text-left"
-        >
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <p class="text-gray-400 mb-4 md:mb-0">
-              © 2025 Yuri Editor. Todos os direitos reservados.
-            </p>
-            <div class="flex space-x-6">
-              <a href="#" class="text-gray-400 hover:text-white transition"
-                >Termos de Serviço</a
-              >
-              <a href="#" class="text-gray-400 hover:text-white transition"
-                >Política de Privacidade</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Floating WhatsApp Button (Mobile) -->
-    <a
-      href="https://wa.me/5531992862866"
-      class="fixed bottom-6 right-6 md:hidden bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg floating-whatsapp z-50"
-    >
-      <i class="fab fa-whatsapp text-2xl"></i>
-    </a>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-    <script>
-      // Mobile Menu Toggle
-      document
-        .getElementById("mobile-menu-button")
-        .addEventListener("click", function () {
-          const menu = document.getElementById("mobile-menu");
-          menu.classList.toggle("hidden");
-        });
-
-      // Initialize Swipers
-      document.addEventListener("DOMContentLoaded", function () {
-        // Thumbnails Swiper
-        const thumbnailsSwiper = new Swiper(".thumbnails-swiper", {
-  loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  slidesPerView: 1, // sempre 1 thumb por vez, inclusive no desktop
-  spaceBetween: 0,
-  centeredSlides: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
-
-        // Testimonials Swiper
-        const testimonialsSwiper = new Swiper(".testimonials-swiper", {
-          loop: true,
-          autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-        });
-      });
-    </script>
-    <!-- Swiper JS -->
-  
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          new Swiper('.metrics-swiper', {
-            loop: true,
-            autoplay: {
-              delay: 4000,
-              disableOnInteraction: false
-            },
-            pagination: {
-              el: '.swiper-pagination',
-              clickable: true
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev'
-            },
-            slidesPerView: 1,
-            spaceBetween: 30,
-            effect: 'slide'
-          });
-        });
-      </script>
-     <!-- Botão flutuante do WhatsApp com texto no desktop -->
+      <!-- Botão flutuante do WhatsApp com texto no desktop -->
 <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 animate-slide-in-fade">
-  <!-- Texto visível apenas no desktop -->
   <span class="hidden lg:inline-block bg-white text-gray-900 px-4 py-2 rounded-xl shadow-lg text-sm font-medium animate-fade-in-up">
     Me chama aqui!
   </span>
-
-  <!-- Ícone do WhatsApp -->
   <a href="https://wa.me/5531992862866" target="_blank" aria-label="Fale comigo no WhatsApp"
     class="bg-green-500 hover:bg-green-600 text-white shadow-xl rounded-full p-4 flex items-center justify-center transition-transform duration-300 hover:scale-110 animate-pulse">
-    <!-- Ícone SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 24 24">
       <path d="M12.04 2C6.52 2 2 6.55 2 12.09c0 1.98.57 3.88 1.65 5.54L2.21 22.14l4.17-1.1c1.63.81 3.45 1.23 5.32 1.23 5.52 0 10.04-4.55 10.04-10.09C22.74 6.55 17.56 2 12.04 2zm0 18.1c-1.56 0-3.07-.42-4.39-1.2l-.31-.18-2.46.65.66-2.4-.16-.33C4.41 15.28 4 13.71 4 12.09 4 7.63 7.63 4 12.04 4c4.42 0 8.04 3.63 8.04 8.09 0 4.46-3.62 8.09-8.04 8.09zm4.48-6.22c-.24-.12-1.41-.7-1.63-.78-.22-.09-.38-.12-.54.12s-.62.78-.76.94c-.14.15-.28.17-.52.06s-1.02-.38-1.94-1.23c-.72-.64-1.2-1.42-1.34-1.65-.14-.24-.02-.37.1-.48.1-.1.24-.26.36-.38.12-.13.16-.22.24-.37.08-.15.04-.28-.02-.4s-.54-1.3-.74-1.78c-.19-.45-.38-.39-.52-.4h-.44c-.15 0-.4.06-.61.28s-.8.78-.8 1.91c0 1.12.82 2.2.93 2.35.12.15 1.62 2.48 3.93 3.48 1.5.64 2.1.7 2.85.59.44-.07 1.41-.58 1.61-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
     </svg>
   </a>
 </div>
-<hr class="my-12 border-gray-300 w-2/3 mx-auto" />
 
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12">
   <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
     <div class="text-center md:text-left mb-6 md:mb-0">
-      <h2 class="text-xl font-bold text-white">
+      <h2 class="text-xl md:text-2xl font-bold text-white mb-2">
         <span class="text-purple-500">Yuri</span> <span class="text-orange-500">Cabelo</span>
       </h2>
       <p class="text-gray-400">Edição profissional para criadores de conteúdo</p>
@@ -1359,5 +1159,6 @@
     <a href="#" class="hover:text-white">Política de Privacidade</a>
   </div>
 </footer>
-  </body>
+
+</body>
 </html>
